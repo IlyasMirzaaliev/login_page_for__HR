@@ -1,0 +1,1 @@
+1. First step Install dev dependencies (express, .dotenv, nodemon, cookieParser)
