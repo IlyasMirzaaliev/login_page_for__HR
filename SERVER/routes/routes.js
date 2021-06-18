@@ -1,9 +1,12 @@
-module.exports = (app) => {
-  app.get("/", (req, res) => {
-    res.render("index");
-  });
+const Router = require("express").Router;
+const router = new Router();
 
-  // app.get("/status", (req, res) => {
+router.get("/", (req, res) => {
+  res.render("index");
+});
 
-  // });
-};
+router.get("/register", (req, res) => {
+  res.render("register");
+});
+
+module.exports = router;

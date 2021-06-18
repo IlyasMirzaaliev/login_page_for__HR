@@ -19,15 +19,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.disable("etag");
 
-//Defining routes
-require("./routes/routes")(app);
-
-const publicDirectory = path.join(__dirname, "./public");
-// console.log(publicDirectory);
-app.use(express.static(publicDirectory));
+// const publicDirectory = path.join(__dirname, "./public");
+app.use(express.static(path.join(__dirname, "./public")));
 
 // app.engine("hbs", hbs());
 app.set("view engine", "hbs");
+
+//Defining routes
+app.use("/", require("./routes/routes"));
+app.use("/auth", require("./routes/auth"));
 
 const appStart = async () => {
   try {
